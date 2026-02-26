@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 const LoginPage = () => {
     const router = useRouter();
-    const [phone, setPhone] = useState('76123456');
+    const [phone, setPhone] = useState('');
     const [pin, setPin] = useState(['', '', '', '']);
     const [isLoading, setIsLoading] = useState(false);
     const pinRefs = [
@@ -102,7 +102,7 @@ const LoginPage = () => {
                             onChange={handlePhoneChange}
                             maxLength={8}
                             autoComplete="off"
-                            placeholder="76123456"
+                            placeholder=""
                             className="flex-grow border-none outline-none text-sm font-medium text-slate-700 bg-transparent"
                         />
                     </div>
