@@ -11,8 +11,13 @@ export default function OtpPage() {
     const [timer, setTimer] = useState(RESEND_SECONDS);
     const [canResend, setCanResend] = useState(false);
     const [isVerifying, setIsVerifying] = useState(false);
+    const [phone, setPhone] = useState('');
 
-    const phone = '+23271555801';
+    // Load the phone number saved by the login page
+    useEffect(() => {
+        const saved = sessionStorage.getItem('loginPhone');
+        if (saved) setPhone(saved);
+    }, []);
 
     useEffect(() => {
         if (timer === 0) { setCanResend(true); return; }

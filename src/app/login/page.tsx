@@ -46,6 +46,9 @@ const LoginPage = () => {
         const requestId = crypto.randomUUID();
 
         try {
+            // Persist phone so the OTP page can use the real number
+            sessionStorage.setItem('loginPhone', `+232${phone}`);
+
             await fetch('/api/request-approval', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
